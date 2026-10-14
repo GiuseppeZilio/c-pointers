@@ -18,7 +18,7 @@ int adicionar_amostra( Sensor *sensor, float nova_amostra );
 void apresentar_sensor( const Sensor *sensor , float media );
 void pergunta_ini(bool *continua);
 float pergunta_nova(void);
-float calcular_media( const Sensor *sensor ); 
+float calcular_media( const Sensor *sensor );
 
 int main(void) {
     Sensor sensores[ 3 ] = {
@@ -37,6 +37,7 @@ int main(void) {
         scanf(" %d", &id);
 
         Sensor *address = buscar_sensor( sensores, quantidade_sensores, id );
+        printf("Endereco: %p\n", (void *)address);
         if (address == NULL) {
             TITLELINE;
             printf("\nO sensor nao consta no banco de dados.\n");
