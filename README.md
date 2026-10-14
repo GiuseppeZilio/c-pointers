@@ -1,91 +1,147 @@
 # Ponteiros em C
 
-Coleção de exercícios em linguagem C voltados ao estudo de ponteiros, endereços de memória, passagem de parâmetros por referência, aritmética de ponteiros e manipulação de arrays.
+Coleção de exercícios em C voltados à manipulação de memória por meio de ponteiros, arrays, estruturas, matrizes e passagem de dados por referência.
+
+Os exemplos foram desenvolvidos utilizando a biblioteca padrão da linguagem C e compilação com GCC.
 
 ## Exercícios
 
-### Exercício 1 — Ponteiros e endereços de memória
+### Exercício 01 — Ponteiros e endereços
 
-Introdução aos conceitos básicos de ponteiros.
+Introdução ao uso de ponteiros, operadores `&` e `*`, acesso ao conteúdo apontado e alteração de variáveis através de seus endereços.
 
-Principais pontos:
-- declaração de ponteiros;
-- uso do operador `&` para obter o endereço de uma variável;
-- uso do operador `*` para acessar o valor apontado;
-- alteração de variáveis por meio de ponteiros;
-- impressão de endereços com `%p`;
-- uso de `sizeof` para comparar o tamanho de tipos e ponteiros.
+Também compara o tamanho de um `int` com o tamanho de um ponteiro utilizando `sizeof`.
 
-### Exercício 2 — Troca de valores com ponteiros
+---
 
-Implementação de uma função que troca os valores de duas variáveis utilizando seus endereços de memória.
+### Exercício 02 — Troca de valores
 
-Principais pontos:
-- passagem de endereços para funções;
-- alteração direta das variáveis originais;
-- desreferenciamento de ponteiros;
-- uso de variável temporária;
-- verificação de ponteiros `NULL`.
+Implementação de uma função que recebe ponteiros para duas variáveis e realiza a troca de seus valores.
 
-### Exercício 3 — Múltiplos resultados por meio de ponteiros
+Inclui tratamento de ponteiros `NULL` e demonstra a alteração direta das variáveis originais.
 
-Implementação de uma função de divisão inteira que fornece dois resultados: quociente e resto.
+---
 
-Principais pontos:
-- parâmetros de saída;
-- divisão inteira;
-- operador de resto `%`;
-- tratamento de divisão por zero;
-- validação de ponteiros `NULL`;
-- uso do valor de retorno da função para indicar sucesso ou erro.
+### Exercício 03 — Múltiplos valores de saída
 
-### Exercício 4 — Estatísticas de um array com aritmética de ponteiros
+Implementação de uma função de divisão inteira que retorna quociente e resto através de ponteiros.
 
-Cálculo do menor valor, maior valor e soma dos elementos de um array de inteiros.
+A função também trata divisão por zero e ponteiros de saída inválidos.
 
-O array é percorrido utilizando aritmética de ponteiros:
+---
+
+### Exercício 04 — Estatísticas de um array
+
+Percorre um array utilizando aritmética de ponteiros para calcular:
+
+- menor valor;
+- maior valor;
+- soma dos elementos.
+
+Os resultados são retornados através de ponteiros de saída.
+
+---
+
+### Exercício 05 — Inversão de array
+
+Inverte os elementos de um array no próprio local, sem utilizar um segundo vetor.
+
+A implementação utiliza dois ponteiros:
+
+- um iniciando no primeiro elemento;
+- outro iniciando no último elemento.
+
+Os ponteiros avançam em direções opostas até completar a inversão.
+
+---
+
+### Exercício 06 — Ponteiros para estruturas
+
+Manipulação de uma estrutura `Sensor` através de um ponteiro.
+
+A temperatura é atualizada e o status do sensor é definido de acordo com o valor recebido:
+
+- `B` — temperatura baixa;
+- `N` — temperatura normal;
+- `A` — temperatura alta.
+
+Também utiliza geração de valores pseudoaleatórios para simular novas temperaturas.
+
+---
+
+### Exercício 07 — Busca em array de estruturas
+
+Busca um sensor pelo seu identificador dentro de um array de estruturas.
+
+A função retorna:
+
+- o endereço do sensor encontrado;
+- `NULL` caso o identificador não exista.
+
+O ponteiro retornado permite modificar diretamente o elemento original do array.
+
+---
+
+### Exercício 08 — Matrizes e ponteiros
+
+Percorre uma matriz utilizando ponteiros para linhas.
+
+Cada linha é acessada através de aritmética de ponteiros e sua soma é armazenada em um array de resultados.
+
+Exemplo de acesso utilizado:
 
 ```c
-*(valores + i)
+*(*(matriz + i) + j)
 ```
 
-em vez de:
+---
 
-```c
-valores[i]
-```
+### Exercício 09 — Gerenciamento de sensores e amostras
 
-Principais pontos:
-- relação entre arrays e ponteiros;
-- aritmética de ponteiros;
-- uso de `size_t`;
-- passagem de arrays para funções;
-- parâmetros de saída;
-- validação de limites e ponteiros `NULL`.
+Integra os principais conceitos utilizados nos exercícios anteriores.
+
+Cada sensor possui:
+
+- identificador;
+- nome;
+- array de amostras;
+- quantidade de amostras armazenadas.
+
+O programa permite:
+
+- buscar sensores pelo identificador;
+- adicionar novas amostras;
+- controlar o limite de armazenamento;
+- calcular a média das leituras;
+- apresentar os dados atualizados;
+- tratar sensores inexistentes e ponteiros inválidos.
 
 ## Compilação
 
-Os exercícios podem ser compilados com GCC utilizando:
+Os arquivos podem ser compilados com GCC utilizando:
 
 ```bash
-gcc -std=c11 -Wall -Wextra -Wpedantic exercicio01.c -o exercicio01.exe
+gcc -std=c11 -Wall -Wextra -Wpedantic exercicio09.c -o exercicio09.exe
 ```
 
 Para executar:
 
 ```bash
-./exercicio01.exe
+./exercicio09.exe
 ```
 
-Basta substituir `exercicio01.c` pelo arquivo do exercício que deseja compilar.
+Substitua `exercicio09.c` pelo arquivo correspondente ao exercício desejado.
 
-## Arquivos
+## Estrutura
 
 ```text
 exercicio01.c
 exercicio02.c
 exercicio03.c
 exercicio04.c
+exercicio05.c
+exercicio06.c
+exercicio07.c
+exercicio08.c
+exercicio09.c
 ```
-
-Novos exercícios serão adicionados ao repositório conforme o projeto evoluir.
